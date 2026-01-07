@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: aigen
+  name: aigen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aigen
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: aigen
+    spec:
+      containers:
+      - image: k8s:latest
+        name: k8s
+        resources: {}
+status: {}
