@@ -2,10 +2,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aigen-ingress
+  namespace: aigen
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - aigen.local
+    secretName: aigen-tls-secret
   rules:
   - host: aigen.local
     http:
